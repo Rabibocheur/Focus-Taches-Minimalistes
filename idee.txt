@@ -1,0 +1,170 @@
+Voici le modèle exact d’une mini app de tâches pensée pour dev solo.
+Simple, utilisable immédiatement, sans surcharge mentale.
+
+Objectif du modèle
+
+Ne plus perdre d’idées ou de bugs
+
+Ne plus réfléchir à “quoi faire”
+
+Avancer malgré le bruit mental
+
+Principe clé
+
+Séparation + contraintes fortes
+
+Capture rapide
+
+Priorité imposée
+
+Peu d’états
+
+Peu de décisions
+
+Structure minimale de l’app
+1. Types d’éléments
+
+Un seul objet, avec un type obligatoire.
+
+type TaskType = 'BUG' | 'FEATURE' | 'TECH' | 'IDEA';
+
+type Task = {
+  id: string;
+  type: TaskType;
+  title: string;
+  notes?: string;
+  status: 'INBOX' | 'NOW' | 'LATER' | 'DONE';
+  createdAt: Date;
+};
+
+
+Pas plus.
+Pas de sous-tâches, pas d’estimation, pas de labels multiples.
+
+2. Colonnes fixes (non modifiables)
+
+INBOX
+
+Tout ce qui traverse ta tête
+
+Aucune priorité
+
+Ajout en 1 clic / 1 ligne
+
+NOW (max 3 éléments)
+
+Ce que tu fais vraiment
+
+Si plein → impossible d’ajouter
+
+LATER
+
+Important mais pas maintenant
+
+Sert à rassurer le cerveau
+
+DONE
+
+Historique
+
+Rien d’autre
+
+3. Règles non négociables
+
+INBOX peut être infinie
+
+NOW ≤ 3 tâches
+
+Une tâche = une action concrète
+
+Pas de refacto mental dans INBOX
+
+Si trop vague → reste en IDEA
+
+Workflow quotidien (5 minutes)
+Début de session
+
+Ouvrir l’app
+
+Regarder NOW
+
+Ne pas regarder le reste
+
+Pendant le dev
+
+Une idée / un bug → INBOX
+
+Pas de décision
+
+Fin de session
+
+Trier l’INBOX :
+
+soit NOW
+
+soit LATER
+
+soit supprimé
+
+UI minimale recommandée
+
+Liste verticale
+
+Couleur par type :
+
+BUG = rouge
+
+FEATURE = bleu
+
+TECH = orange
+
+IDEA = gris
+
+Aucun drag inutile
+
+Ajout rapide en haut (input + enter)
+
+Ce qu’il ne faut surtout PAS ajouter
+
+Notifications
+
+Priorités chiffrées
+
+Deadlines partout
+
+Tags multiples
+
+Roadmap long terme
+
+Gamification
+
+Tout ça augmente la charge cognitive.
+
+Exemple réel de contenu
+
+INBOX
+
+BUG: calcul net faux si brut < 1000
+
+IDEA: export PDF simulateur
+
+TECH: handlers trop gros
+
+NOW
+
+BUG: calcul net TNS
+
+FEATURE: coût employeur UI
+
+TECH: extraire logique calcul
+
+LATER
+
+export CSV
+
+tests unitaires
+
+Vérité directe
+
+Cette app n’est pas faite pour être “belle” ni “complète”.
+Elle est faite pour te libérer la tête afin que tu puisses coder.
